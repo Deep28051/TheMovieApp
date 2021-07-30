@@ -41,7 +41,7 @@ class MoviesAdapter(private val context: Context, private val list: ArrayList<Mo
 
         Glide
             .with(context)
-            .load("https://www.themoviedb.org/t/p/w50_and_h50_face"+list[position].posterPath)
+            .load("https://www.themoviedb.org/t/p/w300_and_h300_face"+list[position].posterPath)
             .centerCrop()
             .placeholder(R.drawable.tmd)
             .into(holder.ivDp)

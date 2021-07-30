@@ -10,10 +10,14 @@ import androidx.appcompat.app.AppCompatActivity
 import com.appintuitions.themovieapp.APIService
 import com.appintuitions.themovieapp.R
 import com.appintuitions.themovieapp.databinding.ActivityDetailsBinding
+import com.appintuitions.themovieapp.repo.AppDatabase
 import com.appintuitions.themovieapp.repo.RetroInstance
+import com.appintuitions.themovieapp.util.Util
 import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
+import com.google.gson.Gson
+import com.google.gson.JsonElement
 import com.google.gson.JsonObject
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.coroutines.CoroutineScope
@@ -36,27 +40,42 @@ class DetailsActivity : AppCompatActivity() {
 
         if (id == -1) {
             Toast.makeText(this, "Movie Not Found", Toast.LENGTH_LONG).show()
-            startActivity(Intent(this, MainActivity::class.java))
-            finishAffinity()
+            gotoMain()
         }
+        if (Util.isNetworkAvailable(this))
+            CoroutineScope(Dispatchers.IO).launch {
+                val response =
+                    RetroInstance.getInstance().create(APIService::class.java).getMovieDetails(id)
 
-        CoroutineScope(Dispatchers.IO).launch {
-            val response =
-                RetroInstance.getInstance().create(APIService::class.java).getMovieDetails(id)
+                Log.e("response details", response.body().toString())
 
-            Log.e("response details", response.body().toString())
+                processResponse(response.body())
+            }
+        else {
+            val movie = AppDatabase.getAppDatabase(application).userDao()?.getMovie(id)
 
-            processResponse(response.body())
+            processResponse(Gson().toJsonTree(movie))
+
         }
+    }
+
+    private fun gotoMain() {
+
+        startActivity(Intent(this, MainActivity::class.java))
+        finishAffinity()
 
     }
 
-    private fun processResponse(body: JsonObject?) {
+    private fun processResponse(element: JsonElement?) {
+
+        val body = element?.asJsonObject
+
         CoroutineScope(Dispatchers.Main).launch {
             if (body != null) {
 
                 pb_loading.visibility = View.GONE
                 lt_root.visibility = View.VISIBLE
+
                 title = body.get("title").asString
                 tv_title.text = body.get("title").asString
 
@@ -71,9 +90,13 @@ class DetailsActivity : AppCompatActivity() {
                 tv_date.text = body.get("release_date").asString
                 tv_lang.text = body.get("original_language").asString
 
-                body.get("genres").asJsonArray.forEach {
-                    chipGroup.addChip(this@DetailsActivity, it.asJsonObject.get("name").asString)
-                }
+                if (body.has("genres"))
+                    body.get("genres").asJsonArray.forEach {
+                        chipGroup.addChip(
+                            this@DetailsActivity,
+                            it.asJsonObject.get("name").asString
+                        )
+                    }
 
                 rb_rating.rating = body.get("vote_average").asFloat / 2
 
