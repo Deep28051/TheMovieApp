@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_margin="5dp"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="10dp"
+            tool:src="@mipmap/ic_launcher" />
+
+        <com.appintuitions.rvkotlin.util.SFTextView
+            android:id="@+id/tvRv"
+            android:layout_toEndOf="@id/iv_dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="Hello"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_toEndOf="@id/iv_dp"
+            android:layout_below="@id/tvRv"
+            android:id="@+id/tv_overview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="4"
+            android:ellipsize="end"
+            android:text="@string/sample_text"/>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
