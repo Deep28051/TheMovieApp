@@ -1,19 +1,17 @@
-package com.appintuitions.rvkotlin.viewmodel
+package com.appintuitions.themovieapp.viewmodel
 
 import android.app.Application
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.appintuitions.rvkotlin.APIService
-import com.appintuitions.rvkotlin.repo.AppDatabase
-import com.appintuitions.rvkotlin.repo.RetroInstance.Companion.getInstance
-import com.appintuitions.rvkotlin.util.Util.Companion.isNetworkAvailable
-import com.appintuitions.rvkotlin.viewmodel.models.Movie
-import com.appintuitions.rvkotlin.viewmodel.models.MovieTypes
+import com.appintuitions.themovieapp.APIService
+import com.appintuitions.themovieapp.repo.AppDatabase
+import com.appintuitions.themovieapp.repo.RetroInstance.Companion.getInstance
+import com.appintuitions.themovieapp.util.Util.Companion.isNetworkAvailable
+import com.appintuitions.themovieapp.viewmodel.models.Movie
+import com.appintuitions.themovieapp.viewmodel.models.MovieTypes
 import com.google.gson.Gson
-import com.google.gson.JsonDeserializationContext
 import kotlinx.coroutines.launch
 
 class MainViewModel(var context: Application) : AndroidViewModel(context) {

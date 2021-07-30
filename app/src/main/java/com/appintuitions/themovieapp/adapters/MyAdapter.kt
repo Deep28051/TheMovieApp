@@ -1,13 +1,12 @@
-package com.appintuitions.rvkotlin.adapters
+package com.appintuitions.themovieapp.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.appintuitions.rvkotlin.R
+import com.appintuitions.themovieapp.R
 
 
 //import kotlinx.android.synthetic.main.lt_rv.*

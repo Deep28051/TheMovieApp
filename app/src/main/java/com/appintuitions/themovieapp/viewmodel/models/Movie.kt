@@ -1,4 +1,4 @@
-package com.appintuitions.rvkotlin.viewmodel.models
+package com.appintuitions.themovieapp.viewmodel.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

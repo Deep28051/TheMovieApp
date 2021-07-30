@@ -1,11 +1,10 @@
-package com.appintuitions.rvkotlin.util
+package com.appintuitions.themovieapp.util
 
 import android.content.Context
 import kotlin.jvm.JvmOverloads
 import androidx.appcompat.widget.AppCompatTextView
 import android.graphics.Typeface
 import android.util.AttributeSet
-import com.appintuitions.rvkotlin.util.SFTextView
 
 class SFTextView @JvmOverloads constructor(
     context: Context?,

@@ -1,12 +1,12 @@
-package com.appintuitions.rvkotlin.repo
+package com.appintuitions.themovieapp.repo
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy.REPLACE
 import androidx.room.Query
-import com.appintuitions.rvkotlin.viewmodel.models.Movie
-import com.appintuitions.rvkotlin.viewmodel.models.MovieTypes
+import com.appintuitions.themovieapp.viewmodel.models.Movie
+import com.appintuitions.themovieapp.viewmodel.models.MovieTypes
 
 @Dao
 interface MovieDao {

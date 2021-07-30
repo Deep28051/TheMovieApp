@@ -1,4 +1,4 @@
-package com.appintuitions.rvkotlin
+package com.appintuitions.themovieapp
 
 import com.google.gson.JsonObject
 import retrofit2.Response

@@ -1,12 +1,11 @@
-package com.appintuitions.rvkotlin.util
+package com.appintuitions.themovieapp.util
 
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Build
-import android.util.Log
-import com.appintuitions.rvkotlin.viewmodel.models.Movie
-import com.appintuitions.rvkotlin.viewmodel.models.MovieSort
+import com.appintuitions.themovieapp.viewmodel.models.Movie
+import com.appintuitions.themovieapp.viewmodel.models.MovieSort
 
 class Util {
 

@@ -1,4 +1,4 @@
-package com.appintuitions.rvkotlin.repo
+package com.appintuitions.themovieapp.repo
 
 import okhttp3.HttpUrl
 import okhttp3.OkHttpClient

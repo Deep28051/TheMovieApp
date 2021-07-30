@@ -27,11 +27,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-                <com.appintuitions.rvkotlin.util.SFTextView
+                <com.appintuitions.themovieapp.util.SFTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Sort By:"
+                    android:text="@string/sort_by"
                     android:textSize="22sp" />
 
                 <Spinner
@@ -61,7 +61,7 @@
             android:gravity="center"
             android:textSize="22sp"
             android:visibility="gone"
-            android:text="No Data Available"/>
+            android:text="@string/no_data"/>
 
 
     </LinearLayout>

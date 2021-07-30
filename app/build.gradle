@@ -10,7 +10,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.appintuitions.rvkotlin"
+        applicationId "com.appintuitions.themovieapp"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -49,6 +49,8 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:1.2.1"
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
+
+    implementation 'me.zhanghai.android.materialratingbar:library:1.4.0'
 
     def nav_version = "2.3.5"
 
